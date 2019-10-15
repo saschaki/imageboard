@@ -5,11 +5,26 @@
      <link rel="stylesheet" type="text/css" href="/css/styles.css">
 </head>
 <body>
-    <div id="main" class="image-flex-container">
-        <div v-for="image in images">
-        <img :src="image.url">
-        <p>{{image.title}}</p>
+    <header>
+        <h1 class="title">Imageboard </h1>
+    </header>
+    <div id="main">
+        <div class="input-container">
+            <input v-model="username" name="username" placeholder="name">
+            <input v-model="title" name="title" placeholder="title">
+            <input v-model="description" name="description" placeholder="description">
+            <input type="file" name="file" id="file" class="inputfile" accept="image/*" @change="fileSelected">
+            <button @click="upload">upload</button>
+            <div v-if="error">Error</div>
         </div>
+        <div class="image-flex-container">
+        <div v-for="image in images">
+            <div class="griditem responsive">
+                <img :src="image.url" :title="image.description">
+                <p>{{image.title}}</p>
+            </div>
+        </div>
+    </div>
     </div>
     <script src="/js/vue.js"></script>
     <script src="/js/axios.min.js"></script>
