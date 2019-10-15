@@ -1,10 +1,18 @@
 <!doctype html>
 <html>
 <head>
-    <title></title>
+    <title>My vue.js App</title>
+     <link rel="stylesheet" type="text/css" href="/css/styles.css">
 </head>
 <body>
+    <div id="main" class="image-flex-container">
+        <div v-for="image in images">
+        <img :src="image.url">
+        <p>{{image.title}}</p>
+        </div>
+    </div>
     <script src="/js/vue.js"></script>
     <script src="/js/axios.min.js"></script>
+    <script src="/js/script.js"></script>
 </body>
 </html>
