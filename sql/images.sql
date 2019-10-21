@@ -1,4 +1,5 @@
-DROP TABLE IF EXISTS images;
+DROP TABLE IF EXISTS images CASCADE;
+DROP TABLE IF EXISTS comments;
 
 CREATE TABLE images(
     id SERIAL PRIMARY KEY,
@@ -7,6 +8,39 @@ CREATE TABLE images(
     title VARCHAR(255) NOT NULL,
     description TEXT,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE comments(
+    id SERIAL PRIMARY KEY,
+    comment TEXT NOT NULL,
+    username VARCHAR(255) NOT NULL,
+    image_id INT NOT NULL REFERENCES images(id),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+
+INSERT INTO comments (comment, username, image_id) VALUES (
+    'my first comment',
+    'my first username',
+    1
+);
+
+INSERT INTO comments (comment, username, image_id) VALUES (
+    'another comment',
+    'another username',
+    1
+);
+
+INSERT INTO comments (comment,  username, image_id) VALUES (
+    'my second comment',
+        'my second username',
+    2
+);
+
+INSERT INTO comments (comment, username, image_id) VALUES (
+    'my third comment',
+    'my third username',
+    3
 );
 
 INSERT INTO images (url, username, title, description) VALUES (

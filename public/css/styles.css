@@ -11,6 +11,10 @@ body {
     background-color: whitesmoke;
 }
 
+#file {
+    background-color: whitesmoke;
+}
+
 .image-flex-container {
     padding: 20px;
     display: grid;
@@ -80,17 +84,24 @@ input html {
     font-family: "Comic Sans MS", sans-serif;
     font-size: 14px;
 }
-
+/*
 .input-container {
-    padding: 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    width: 100px;
+    grid-column: 2;
+    justify-content: flex-end;
 }
 
 input {
     height: 30px;
     text-align: center;
+    font-family: Comic Sans MS, arial, sans-serif;
 }
 
 button {
+    font-family: Comic Sans MS, arial, sans-serif;
     font-size: 1.25em;
     font-weight: 700;
     border-radius: 25px;
@@ -106,7 +117,7 @@ button:focus {
     background-color: black;
     color: white;
 }
-
+*/
 button:focus {
     outline: 1px solid #fff;
     outline-offset: -4px;
@@ -128,21 +139,294 @@ input:required {
     background-color: rgba(255, 0, 0, 0.2);
 }
 
-input:valid {
-    background-color: white;
+.input-container input:hover {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    opacity: 1; /* Firefox */
+    background: black;
+    color: white;
 }
 
-.inputfile {
-    background-color: green;
+.input-container input:hover::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    opacity: 1; /* Firefox */
+    color: white;
+    background: black;
+}
+
+input {
+    border-radius: 25px;
+}
+
+/*
+input::-webkit-input-placeholder {
+    color: white;
+}
+input:focus::-webkit-input-placeholder {
+    color:white;
+}
+*/
+::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: black;
+    opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: blue;
+}
+
+::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: blue;
 }
 
 .title {
     text-align: center;
     color: #999999;
-    font-family: Comic Sans MS, arial, sans-serif;
-    font-size: 40px;
+    /*    font-family: Comic Sans MS, arial, sans-serif; */
+    font-size: 50px;
     font-weight: bold;
     margin-top: 30px;
     margin-bottom: 30px;
     letter-spacing: 20px;
+    font-weight: bold;
+}
+/*
+.inputfile {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+.inputfile + label {
+    font-size: 1.25em;
+    font-weight: 700;
+    color: black;
+    background-color: lightgrey;
+    display: inline-block;
+    border-radius: 100px;
+}
+
+.inputfile:focus + label,
+.inputfile + label:hover {
+    background-color: black;
+    color: white;
+}
+
+.inputfile + label {
+    cursor: pointer;
+}
+*/
+
+input,
+button,
+#file {
+    cursor: pointer;
+}
+
+.top-container {
+    display: flex;
+    justify-content: center;
+    margin-right: 20px;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+input::-webkit-input-placeholder {
+    text-align: center;
+}
+input:focus::-webkit-input-placeholder {
+    text-align: center;
+}
+
+.title {
+    margin-right: 50px;
+}
+
+.component {
+    background-color: lightgrey;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+}
+/*
+.overlay {
+    position: fixed;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 5;
+}
+
+.hidden {
+    display: hidden;
+}
+*/
+.component img {
+    width: 300px;
+    height: 300px;
+}
+
+.flex {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.modal {
+    justify-content: center;
+    text-align: center;
+}
+
+.modal-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
+
+.modal-top {
+    float: right;
+    top: 0px;
+    /*display: inline;*/
+}
+
+.close-modal {
+    float: right;
+    display: inline-block;
+    z-index: 2;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    top: 5px;
+    right: 5px;
+    font-weight: bold;
+}
+
+.close-modal:hover {
+    background-color: grey;
+}
+
+.modal-top {
+    display: inline-block;
+}
+
+.close {
+    position: absolute;
+    right: 32px;
+    top: 32px;
+    width: 32px;
+    height: 32px;
+    opacity: 0.3;
+}
+.close:hover {
+    opacity: 1;
+}
+.close:before,
+.close:after {
+    position: absolute;
+    left: 15px;
+    content: " ";
+    height: 33px;
+    width: 2px;
+    background-color: #333;
+}
+.close:before {
+    transform: rotate(45deg);
+}
+.close:after {
+    transform: rotate(-45deg);
+}
+
+footer {
+    left: 50%;
+    transform: translate(-50%, 0);
+    position: absolute;
+    bottom: 0;
+}
+
+.more-button {
+    margin-left: 20px;
+    margin-top: 20px;
+    padding: 5px;
+    border-radius: 25px;
+}
+
+.uploadbtn {
+    padding: 5px;
+    border-radius: 25px;
+}
+
+button:focus {
+    outline: none;
+}
+button:hover,
+button:focus {
+    background-color: black;
+    color: white;
+}
+
+button:focus {
+    outline: 1px solid #fff;
+    outline-offset: -4px;
+}
+
+button:active {
+    transform: scale(0.99);
+}
+
+.comments {
+    margin-top: 20px;
+}
+.comments-top {
+    margin-top: 20px;
+}
+
+.comment-container {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid grey;
+    background-color: white;
+}
+
+.comment-title {
+    text-align: left;
+    width: 150px;
+    font-weight: bold;
+}
+
+.comment-text {
+}
+
+.input-container {
+    margin-left: 20px;
+}
+
+.username-comment {
+}
+
+.vertical {
+    display: flex;
+    flex-direction: column;
+}
+
+.comment-button {
+    margin: 0 auto;
+    display: block;
 }
