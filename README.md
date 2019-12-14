@@ -4,7 +4,7 @@ Vue-based App to upload images to Amazon Web Services and display them on a boar
 **Features**</br>
 ▪ Upload Images with title, description, timestamp and uploader name</br>
 ▪ Comment on images</br>
-▪ Pagination</br>
+▪ Pagination (remove more button when there are no more images</br>
 
 **Tech**</br>
 ▪ Node</br>
